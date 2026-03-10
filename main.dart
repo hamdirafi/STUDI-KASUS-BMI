@@ -2,13 +2,14 @@ import 'dart:io';
 import 'dart:math';
 
 void main() {
-  int angkaRahasia = Random().nextInt(10) + 1;
-  int tebakan = 0;
-
   print("=== GAME TEBAK ANGKA ===");
 
+  // Angka rahasia antara 1 sampai 100
+  int angkaRahasia = Random().nextInt(100) + 1;
+  int tebakan = 0;
+
   while (tebakan != angkaRahasia) {
-    stdout.write("Tebak angka (1-10): ");
+    stdout.write("Tebak angka (1-100): ");
     tebakan = int.parse(stdin.readLineSync()!);
 
     if (tebakan < angkaRahasia) {
