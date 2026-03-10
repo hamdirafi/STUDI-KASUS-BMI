@@ -2,16 +2,21 @@ import 'dart:io';
 import 'dart:math';
 
 void main() {
+  int angkaRahasia = Random().nextInt(10) + 1;
+  int tebakan = 0;
+
   print("=== GAME TEBAK ANGKA ===");
 
-  int angkaRahasia = Random().nextInt(100) + 1;
+  while (tebakan != angkaRahasia) {
+    stdout.write("Tebak angka (1-10): ");
+    tebakan = int.parse(stdin.readLineSync()!);
 
-  stdout.write("Masukkan tebakan: ");
-  int tebakan = int.parse(stdin.readLineSync()!);
-
-  if (tebakan == angkaRahasia) {
-    print("Benar!");
-  } else {
-    print("Salah, angka yang benar adalah $angkaRahasia");
+    if (tebakan < angkaRahasia) {
+      print("Terlalu kecil!");
+    } else if (tebakan > angkaRahasia) {
+      print("Terlalu besar!");
+    } else {
+      print("Benar! 🎉");
+    }
   }
 }
